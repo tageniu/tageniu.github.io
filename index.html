@@ -144,6 +144,17 @@ function checkTime(i) {
 }
 	
 function browserRedirect() {
+	var ipv4 = null;
+	$.ajax({
+		url:'http://myip.ipip.net',
+		async:false,
+		cache:false,
+		type:'GET',
+		success:function (temp) {
+		ipv4 = temp;
+		}
+	});
+	document.getElementById('ipv4').innerHTML = ipv4
 	var sUserAgent = navigator.userAgent.toLowerCase();
 	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
 	var bIsIphone = sUserAgent.match(/iphone/i) == "iphone";
@@ -265,18 +276,6 @@ function checkUrl() {
 	checkUrl();
 
 
-	var ipv4 = null;
-	$.ajax({
-		url:'http://myip.ipip.net',
-		async:false,
-		cache:false,
-		type:'GET',
-		success:function (temp) {
-		ipv4 = temp;
-		}
-	});
-alert(ipv4);
-	document.getElementById('ipv4').innerHTML = ipv4
 </script>
 <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="710">
   <param name="movie" value="images/kepler.swf">
