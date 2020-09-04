@@ -1,0 +1,23 @@
+211.86.151.106 or 211.86.151.104
+
+lsflsf
+lsf1792674959
+
+
+
+ssh liangsf@211.86.151.106
+
+scp -r C:\Users\ShijieSun\Desktop\20200518 liangsf@211.86.151.106:~/sun/zxl
+bsub -q smallib -n 24 -o %J.log -e %J.err g16 "file"
+
+scp -r liangsf@211.86.151.106:~/sun/zxl/20200708 C:\Users\ShijieSun\Desktop\
+bjobs -p -u all
+
+
+
+
+# https://thuchemst.github.io/2016/09/22/gaussian-introduction/
+# https://www.bilibili.com/video/BV1Qb411x7Km
+https://wenku.baidu.com/view/6aa44824ed630b1c59eeb55c.html
+# http://sobereva.com/224
+# http://sobereva.com/336

@@ -1,0 +1,66 @@
+<html>
+    <head>  
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>个人主页</title>  
+        <script language="JavaScript">  
+            function startTime()     
+           {     
+                var today=new Date();//定义日期对象     
+                var yyyy = today.getFullYear();//通过日期对象的getFullYear()方法返回年      
+               var MM = today.getMonth()+1;//通过日期对象的getMonth()方法返回年      
+             var dd = today.getDate();//通过日期对象的getDate()方法返回年       
+                var hh=today.getHours();//通过日期对象的getHours方法返回小时     
+               var mm=today.getMinutes();//通过日期对象的getMinutes方法返回分钟     
+                var ss=today.getSeconds();//通过日期对象的getSeconds方法返回秒     
+                // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09     
+                MM=checkTime(MM);  
+                dd=checkTime(dd);  
+                mm=checkTime(mm);     
+                ss=checkTime(ss);      
+                var day; //用于保存星期（getDay()方法得到星期编号）  
+                if(today.getDay()==0)   day   =   "星期日 "   
+                if(today.getDay()==1)   day   =   "星期一 "   
+                if(today.getDay()==2)   day   =   "星期二 "   
+               if(today.getDay()==3)   day   =   "星期三 "   
+              if(today.getDay()==4)   day   =   "星期四 "   
+                if(today.getDay()==5)   day   =   "星期五 "   
+                if(today.getDay()==6)   day   =   "星期六 "   
+                document.getElementById('nowDateTimeSpan').innerHTML=yyyy+"年"+MM +"月"+ dd +"日 " + hh+":"+mm+":"+ss+"   " + day;     
+                setTimeout('startTime()',1000);//每一秒中重新加载startTime()方法   
+            }     
+              
+            function checkTime(i)     
+           {     
+                if (i<10){  
+                    i="0" + i;  
+               }     
+                 return i;  
+           }    
+       </script>  
+    <style type="text/css">    
+    .微软雅黑 {
+	font-family: 微软雅黑;
+}
+    .华文彩云 {
+	font-family: 华文彩云;
+}
+    紫红色 {
+	color: #FF0080;
+}
+    .紫红色 {
+	color: #FF0080;
+}
+</style>
+    </head> 
+
+<body onLoad="startTime()" >
+<p><strong>版本：<span style="color:red"><em><u>2016-12</u></em></span></strong></p>
+<p><img src="/~tageniu/images/logo.png" width="470" height="90"></p>
+<H2>您是第<IMG SRC="/cgi-bin/Count.cgi?df=tageniu.dat&dd=cdr&md=8&ft=6">位访客</H2>
+<P><span class="微软雅黑">您的IP地址是：
+      <SCRIPT language="JavaScript" src="/cgi-bin/myip" type="text/javascript"></SCRIPT>
+</span><p><span class="微软雅黑">当前时间：<font color="#0000dd"><span id="nowDateTimeSpan"></span></font></p>
+<p><span class="微软雅黑">友情链接：</span><a href="http://www.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">科大首页</a>&nbsp;&nbsp;<a href="http://www.teach.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">本科教育</a>&nbsp;&nbsp;<a href="http://ecard.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">一卡通</a>&nbsp;&nbsp;<a href="http://lib.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">图书馆</a>&nbsp;&nbsp;<a href="http://email.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">电子邮件</a>&nbsp;&nbsp;<a href="http://ty.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">体育教学</a>&nbsp;&nbsp;<a href="http://video.cmet.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">现代教育技术中心</a></p>
+<p><span class="微软雅黑"><a href="/~tageniu/histories/history.html">返回</a></span></p>
+</body>
+</html>

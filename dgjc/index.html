@@ -1,0 +1,215 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="width=device-width,initial-scale=1; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="Expires" content="0">
+	<title>成绩查询</title>
+	<LINK href="./files/index.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="./files/ustc.ico" type="image/x-icon" />
+	<script src="./files/jquery-3.3.1.min.js"></script>
+	<script src="./files/md5.min.js"></script>
+	<script type="text/javascript">
+		//$.ajaxSettings.async = false;
+		function dic(){
+			var text = null;
+			var hash = null;
+			$.ajax({url:"../update.js",
+				async:false,
+				cache:false,
+				type:"post",
+				success:function (temp) {
+				text = temp;
+				}
+			});
+			$.ajax({url:"../update.js.md5",
+				async:false,
+				cache:false,
+				type:"post",
+				success:function (temp1) {
+				hash = temp1;
+				}
+			});
+			var md5val = md5(text);
+			var words = text.split(/\n|\t/);
+			var word = document.getElementById("xuehao").value;
+			var xm = document.getElementById("xingming").value;
+			for (var i = 0; i < words.length; i++) {
+				if (hash != md5val) {
+					alert("数据库校验失败，请停止查询并联系助教！！");
+					break;
+				}
+				if (word == "SB" || word == "sb" || word == "Sb") {
+					alert("是你哦~");
+					break;
+				}
+				if (word == "") {
+					alert("不输入学号你查个鬼哦~");
+					break;
+				}
+				if (xm == "") {
+					alert("不输入姓名你查个鬼哦~");
+					break;
+				}
+				if (words[i] == word && words[i+1] == xm) {
+					document.getElementById("hw1").innerHTML=words[i+2];
+					document.getElementById("hw2").innerHTML=words[i+3];
+					document.getElementById("hw3").innerHTML=words[i+4];
+					document.getElementById("hw4").innerHTML=words[i+5];
+					document.getElementById("hw5").innerHTML=words[i+6];
+					document.getElementById("hw6").innerHTML=words[i+7];
+					document.getElementById("hw7").innerHTML=words[i+8];
+					break;
+				}
+				if (i == words.length - 1) {
+					alert("没这人，走错地儿了吧？");
+				}
+
+			}
+		}
+	</script>
+	<style>
+		td{
+			border: 1pt, solid, black;
+		}
+		#xuehao {
+			font-size: 20px;
+			height: 30px;
+			border-radius: 4px;
+			border: 1px solid #c8cccf;
+			color: #6a6f77;
+		}
+
+		#xingming {
+			font-size: 20px;
+			height: 30px;
+			border-radius: 4px;
+			border: 1px solid #c8cccf;
+			color: #6a6f77;
+		}
+
+		#submit {
+			padding: 7px;
+			font-size: 14px;
+			height: 30px;
+			border-radius: 4px;
+			border: 1px solid #c8cccf;
+		}
+
+		#hhh{
+			margin-left: auto;
+			margin-right: auto;
+			width: 80%;
+			text-align: center;
+			border: 1pt, solid, black;
+			background-color:rgb(173, 129, 214);
+		}
+		#hhhh{
+			margin-top: 5em;
+			margin-left: auto;
+			margin-right: auto;
+			width: 90%;
+			text-align: center;
+			border: 1;
+			background-color:rgb(173, 129, 214);
+		}
+		h3{
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.微软雅黑 {
+			font-family:微软雅黑
+		}
+		a.p1:link {
+			color:#ff8000
+		}
+		a.p1:visited {
+			color:#ff8000
+		}
+		a.p1:hover {
+		color: #006600;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript" src="files/canvas-nest.min.js"></script>
+
+	<table width="100%" height="120" align="center">
+		<TBODY align="center">
+			<TR>
+				<TD>
+					<p class="STYLE1"><strong>2020夏维东电工基础平时成绩查询</strong></p>
+				</TD>
+			</TR>
+		</TBODY>
+	</table>
+	<HR>
+	<table width="100%" height="120" align="center">
+		<TBODY align="center">
+			<tr height="100"></tr>
+			<TR class="STYLE2">
+				<TD>
+					<ol>
+						<b>输入学号:</b> <INPUT TYPE="text" NAME="" id="xuehao"> <b>输入姓名:</b> <INPUT TYPE="text" NAME="" id="xingming"> <INPUT TYPE="button" id="submit" value="查询成绩" onclick="dic()">
+					</ol>
+				</TD>
+			</TR>
+			<tr height="100">
+				<td>*查询时请输入<b><u>字母大写</u></b>的学号，然后点击“查询成绩”按钮。结果显示在下面的表格中。<br>
+					*在未征得同意的情况下，不要擅自查询他人的成绩，请务必尊重他人的隐私！</td>
+			</tr>
+		</TBODY>
+	</table>
+
+	<table id="hhhh">
+		<tr>
+			<th rowspan="2">作业</th>
+			<th>第一周作业</th>
+			<th>第二周作业</th>
+			<th>第四周作业</th>
+			<th>第七周作业</th>
+			<th>第八周作业</th>
+			<th>第十周作业</th>
+			<th>平时分（满分20）</th>
+		</tr>
+		<tr>
+			<td id="hw1">待查</td>
+			<td id="hw2">待查</td>
+			<td id="hw3">待查</td>
+			<td id="hw4">待查</td>
+			<td id="hw5">待查</td>
+			<td id="hw6">待查</td>
+			<td id="hw7">待查</td>
+		</tr>
+
+	</table>
+
+	<table width="100%" height="120" align="center">
+		<TBODY align="center">
+			<tr height="100"></tr>
+			<TR class="STYLE2">
+				<TD>
+					<ol>
+						<b>请点击链接查看作业参考答案:</b>
+					</ol>
+				</TD>
+			</TR>
+			<tr height="80">
+				<td>
+				<p class="微软雅黑"><a class="p1" href="./pic/1.jpg"><u>第一周作业</u></a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="./pic/2.jpg"><u>第二周作业</u></a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="./pic/4.jpg"><u>第四周作业</u></a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="./pic/7.jpg"><u>第七周作业</u></a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="./pic/8.jpg"><u>第八周作业</u></a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="./pic/10.jpg"><u>第十周作业</u></a>
+				</p>				
+				</td>
+			</tr>
+		</TBODY>
+	</table>
+
+</body>
+
+</html>

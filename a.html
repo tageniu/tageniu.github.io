@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta name="viewport" http-equiv="Content-Type" content="width=device-width,initial-scale=1; charset=utf-8" />
+<title>Games</title>
+<link rel="icon" href="/~tageniu/images/game.ico" />
+<style type="text/css">
+.微软雅黑 {
+	font-family:微软雅黑
+}
+a.p1:link {
+	color:red
+}
+a.p1:visited {
+	color:red
+}
+a.p2:link {
+	color:orange
+}
+a.p2:visited {
+	color:orange
+}
+a.p3:link {
+	font-family:微软雅黑;
+	color:blue;
+}
+a.p3:visited {
+	font-family:微软雅黑;
+	color:blue;
+}
+.blue {
+	font-family:微软雅黑;
+	color:blue;
+}
+.pink {
+	font-family:微软雅黑;
+	color:pink;
+}
+a.pink:hover {
+	color:green;
+	}
+</style>
+</head>
+
+<body onload="check()">
+<p class="微软雅黑"><strong>Your userAgent：</strong></p>
+
+<p><span class="blue" ID="userAgent"></span></p>
+
+<p class="微软雅黑"><strong>Choose a game to play：</strong></p>
+
+<p><a class="pink" href="https://www.baidu.com">Love</a>&nbsp;&nbsp;<a class="pink" href="https://www.bing.com">Girl</a></p>
+
+<script>
+function check() {
+	var str= navigator.userAgent.toLowerCase();
+	//alert(str);
+	
+	document.getElementById('userAgent').innerHTML=str
+}
+</script>
+</body>
+</html>

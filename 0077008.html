@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta name="viewport" http-equiv="Content-Type" content="width=device-width,initial-scale=1; charset=utf-8" />
+<title>Game</title>
+<link rel="icon" href="/~tageniu/images/game.ico" />
+<style type="text/css">
+.微软雅黑 {
+    font-family:微软雅黑;
+    font-size:40px;
+}
+.blue {
+    font-family:微软雅黑;
+    color:blue;
+    font-size:50px;
+}
+
+</style>
+</head>
+
+<body onload="check()">
+<p class="微软雅黑"><strong>The answer is: </strong></p>
+
+<p><span class="blue" ID="passWord"></span></p>
+<script>
+function turn(a){
+    var i, j;
+    i = Math.floor(a / 10);
+    j = a - 10 * i;
+    a = 10 * j + i;
+    return(a);
+}
+                   
+function check() {
+    var i = prompt('Please input the three numbers:','');
+    var j = Math.floor(i/100)*10000+(Math.floor(i/10)-Math.floor(i/100)*10)*100+(i-Math.floor(i/10)*10)+9020;
+    j = j*94767+358897436;
+    //document.write(j+" ");
+    var g = new Array();
+    var q = 0;
+    var str = "";
+    g[0]=Math.floor(j/1e8);
+    g[1]=Math.floor((j-1e8*g[0])/1e6);
+    g[2]=Math.floor((j-1e8*g[0]-1e6*g[1])/1e4);
+    g[3]=Math.floor((j-1e8*g[0]-1e6*g[1]-1e4*g[2])/1e2);
+    g[4]=(j-1e8*g[0]-1e6*g[1]-1e4*g[2]-1e2*g[3]);
+    //document.write("The answer is: ")
+    for(; q < 5; q++){
+        g[q] = turn(g[q]);
+        g[q] < 10 ? str+="0"+g[q] : str+=g[q];
+    }
+    document.getElementById('passWord').innerHTML=str;
+}
+</script>
+</body>
+</html>

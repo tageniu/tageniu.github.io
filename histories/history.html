@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>历史版本</title>
+<link rel="icon" href="/~tageniu/images/history.ico" />
+<style type="text/css">
+.black {
+	color: #000
+}
+.微软雅黑 {
+	font-family:微软雅黑
+}
+a.p1:link {
+	color:red
+}
+a.p1:visited {
+	color:red
+}
+a.p2:link {
+	color:orange
+}
+a.p2:visited {
+	color:orange
+}
+a.p3:link {
+	font-family:微软雅黑;
+	color:blue;
+}
+a.p3:visited {
+	font-family:微软雅黑;
+	color:blue;
+}
+</style>
+</head>
+
+<body>
+<p class="微软雅黑"><strong>请点击链接进入历史版本：</strong></p>
+<blockquote>
+<p class="微软雅黑"><a class="p1" href="/~tageniu/histories/2016-10.html">2016-10</a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="/~tageniu/histories/2016-11.html">2016-11</a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p1" href="/~tageniu/histories/2016-12.html">2016-12</a>
+</p>
+<p class="微软雅黑"><a class="p2" href="/~tageniu/histories/2017-08.html">2017-08</a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="p2">2017-09</a>
+</p>
+</blockquote>
+<p><a href="http://home.ustc.edu.cn/~tageniu/"><img src="/~tageniu/images/home.png" width="56" height="56" align="middle" /></a></p>
+<a class="p3" href="http://t.cn/EVPMjmW">http://t.cn/EVPMjmW</a>
+<p><span class="微软雅黑" color="#0000dd" ID="userAgent"></span></p>
+<button onclick="check()" style="position: absolute; bottom: 1px; right: 0px;">display</button>
+
+<script>
+function check() {
+	var str= navigator.userAgent.toLowerCase();
+	alert(str);
+	document.getElementById('userAgent').innerHTML=str
+}
+</script>
+</body>
+</html>
