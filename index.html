@@ -265,15 +265,17 @@ function checkUrl() {
 	checkUrl();
 
 
-	//var ipv4 = null;
-	$.ajax({url:"https://api-ipv4.ip.sb/ip",
+	var ipv4 = null;
+	$.ajax({
+		url:'https://ip.sb',
 		async:false,
 		cache:false,
-		type:"post",
+		type:'GET',
 		success:function (temp) {
-		var ipv4 = temp;
+		ipv4 = temp;
 		}
 	});
+alert(ipv4);
 	document.getElementById('ipv4').innerHTML = ipv4
 </script>
 <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="710">
