@@ -1,0 +1,311 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; width=device-width,initial-scale=1.0, user-scalable=yes" />
+<title>个人主页</title>
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script src="Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107286119-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107286119-1');
+</script>
+
+<link rel="icon" href="images/ustc.ico" />
+<style type="text/css">    
+    .微软雅黑 {
+		font-family: 微软雅黑;
+	}
+    .华文彩云 {
+		font-family: 华文彩云;
+		text-decoration:none;
+	}
+    .紫红色 {
+		color: #FF0080;
+	}
+	a:hover {
+		color: #006600;
+	}
+	.black{
+		color:#000000;
+		font-family: 微软雅黑;
+	}
+	.gray{
+		color:#666666;
+		font-family: 微软雅黑;
+	}
+	#span1 a:link {color:blue}
+	#span1 a:visited {color:blue}
+#dict {
+	position: absolute;
+	left: 300px;
+	top: 145px;
+}
+</style>
+</head>
+<body onload="startTime()" onbeforeunload="document.search.reset();" bgcolor="#EEEEEE">
+<p><a href="https://www.ustc.edu.cn/"><img src="images/logo.png" width="470" height="90"></a></p>
+
+<!--
+<div id="right">
+  <ul>
+    <li class="link1"><a onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://202.38.70.126/');" 
+  href="http://mis.teach.ustc.edu.cn/search_public.html#">设为首页</a> | <a href="javascript:window.external.AddFavorite('http://202.38.70.126/', '综合教务系统公共信息查询平台')">加入收藏</a></li>
+    <!-- <li class="link2">Email：<a href="mailto:bkjwxt@ustc.edu.cn" >bkjwxt@ustc.edu.cn</a></li> 
+  </ul>
+</div>
+-->
+
+<!--
+https://www.google.com/ncr#q=%s
+-->
+
+<form name="search" action="https://www.baidu.com/s" target="_blank">
+	<input id="text" name="" type="text" value="请输入搜索内容" size=30 maxlength="100" class="gray" onclick="if(this.value=='请输入搜索内容'){this.value='';this.className='black'}" onblur="if(this.value=='') {this.value='请输入搜索内容';this.className='gray'}" />
+	<input type="submit" class="微软雅黑" value="Google" onClick="text.name='q'; document.search.action='https://google.zenith.gq/search'" >	
+	<input type="submit" class="微软雅黑" value="Google*" onClick="text.name='q'; document.search.action='https://google.biaji.gq/search'" >
+	<input type="submit" class="微软雅黑" value="Scholar" onClick="text.name='q'; document.search.action='https://scholar.paodekuaiweixinqun.com/scholar'" >
+	<input type="submit" class="微软雅黑" value="GOOGLE" onClick="text.name='q'; document.search.action='https://www.google.com/search'" >
+	<input type="submit" class="微软雅黑" value="百度" onClick="text.name='wd'; document.search.action='https://www.baidu.com/s'" >
+</form>
+<H2>您是第<IMG SRC="http://home.ustc.edu.cn/cgi-bin/Count.cgi?df=tageniu.dat&dd=cdr&md=8&ft=6&md=7">位访客</H2>
+<form action='
+https://dictionary.cambridge.org/zhs/%E6%90%9C%E7%B4%A2/%E8%8B%B1%E5%BC%8F%E8%8B%B1%E8%AF%AD/direct/?utm_source=widget_searchbox_source&utm_medium=widget_searchbox&utm_campaign=widget_tracking' method='post' id="dict" target="_blank"> <table style='font-size:10px;background:#292929;border-collapse:collapse;border-spacing:0;width:160px;' > <tbody> <tr> <td colspan='2' style='padding:0;background:none;border:none;'> <a href='https://dictionary.cambridge.org/zhs/' style='display:block; background: transparent url(images/sbl.png) no-repeat 5px 6px;height:32px;'></a> </td> </tr> <tr> <td style='width:68px;background:none;border:none;padding:4px;'> <input style='width:100%;display:block;font-size:10px;padding:2px;border:none;' name='q' /> </td> <td style='width:50px;background:none;border:none;padding:0 4px 0 0;'> <input style='width:100%;display:block;font-size:10px;padding:2px;border:none;float:right;background:#d0a44c;' type='submit' value='Look it up' /> </td> </tr> </tbody> </table> </form>
+<P><span class="微软雅黑">您的IP地址是：<span id="ipv4"</span></span>&nbsp;<font color="#0000dd">&nbsp;<span id='what' class="微软雅黑"></span></font>
+<p><span class="微软雅黑">当前时间：<font color="#0000dd"><span id="nowDateTimeSpan"></span></font></span></p>
+<p><span class="微软雅黑">友情链接：</span><a href="https://www.teach.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">本科教育</a>&nbsp;&nbsp;<a href="https://email.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">电子邮件</a>&nbsp;&nbsp;<a href="http://ecard.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">一卡通</a>&nbsp;&nbsp;<a href="http://lib.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">图书馆</a>&nbsp;&nbsp;<a href="http://222.195.70.60/hi/view/mobile/login.html" target="_blank" class="华文彩云 紫红色">体育教学</a>&nbsp;&nbsp;<a href="https://sf.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">网上缴费</a>&nbsp;&nbsp;<a href="http://video.cmet.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">现代教育技术中心</a>&nbsp;&nbsp;<a href="https://ocw.mit.edu/" target="_blank" class="华文彩云 紫红色">MIT 公开课</a></p>
+
+<p>　　　　　<a href="http://tv.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">影视无限</a>&nbsp;&nbsp;<a href="https://jxzy.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">物理实验</a>&nbsp;&nbsp;<a href="http://wlt.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">网络通</a>&nbsp;&nbsp;<a href="http://softtone.cmet.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">软件通</a>&nbsp;&nbsp;<a href="http://hospital.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">科大医院</a>&nbsp;&nbsp;<a href="https://mis.teach.ustc.edu.cn/userinit.do?userbz=s" target="_blank" class="华文彩云 紫红色">学生登录</a>&nbsp;&nbsp;<a href="https://icourse.club/" target="_blank" class="华文彩云 紫红色">USTC评课社区</a>&nbsp;&nbsp;<a href="https://ipv6.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">网站HTTP支持</a></p>
+<p>　　　　　<a href="http://www.beautyofscience.com/" target="_blank" class="华文彩云 紫红色">美丽科学</a>&nbsp;&nbsp;<a href="https://linux.ustc.edu.cn/ap/" target="_blank" class="华文彩云 紫红色">校园地图</a>&nbsp;&nbsp;<a href="https://kyfw.12306.cn/otn/leftTicket/init" target="_blank" class="华文彩云 紫红色">12306订票</a>&nbsp;&nbsp;<a href="https://github.com/" target="_blank" class="华文彩云 紫红色">GitHub</a>&nbsp;&nbsp;<a href="https://oj.ustc.edu.cn/#/" target="_blank" class="华文彩云 紫红色">USTC OJ</a>&nbsp;&nbsp;<a href="https://docs.microsoft.com/zh-cn/sysinternals/" target="_blank" class="华文彩云 紫红色">Sysinternals</a>&nbsp;&nbsp;<a href="https://jenny42.com/" target="_blank" class="华文彩云 紫红色">Jenny42</a>&nbsp;&nbsp;<a href="https://adrain.ustclug.org/" target="_blank" class="华文彩云 紫红色">录取集</a>&nbsp;&nbsp;<a href="http://www.feynmanlectures.caltech.edu/" target="_blank" class="华文彩云 紫红色">费曼!</a>
+</p>
+
+<p>　　　　　<a href="https://www.lifewire.com/" target="_blank" class="华文彩云 紫红色">Life wire</a>&nbsp;&nbsp;<a href="http://staff.ustc.edu.cn/~qiliuql/DB2019HF.html" target="_blank" class="华文彩云 紫红色">Database</a>&nbsp;&nbsp;<a href="http://staff.ustc.edu.cn/~luoq/309/" target="_blank" class="华文彩云 紫红色">C++</a>&nbsp;&nbsp;<a href="https://www.collinsdictionary.com/zh/dictionary/english/" target="_blank" class="华文彩云 紫红色">Collins</a>&nbsp;&nbsp;<a href="https://sls.smartstudy.com/smartstudy_ustc/" target="_blank" class="华文彩云 紫红色">SmartStudy</a>&nbsp;&nbsp;<a href="https://ww2.mathworks.cn/matlabcentral/cody/" target="_blank" class="华文彩云 紫红色">MATLAB</a>&nbsp;&nbsp;<a href="http://gaotie.org/x/" target="_blank" class="华文彩云 紫红色">高铁</a>&nbsp;&nbsp;<a href="https://moerail.ml/" target="_blank" class="华文彩云 紫红色">查询</a>&nbsp;&nbsp;<a href="https://baike.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">校园百科</a>&nbsp;&nbsp;<a href="https://sec.ustc.edu.cn/" target="_blank" class="华文彩云 紫红色">信安俱乐部</a>
+</p>
+
+<p>　　　　　<a href="https://www.overleaf.com/" target="_blank" class="华文彩云 紫红色">OverLeaf</a>&nbsp;&nbsp;<a href="http://gre.kmf.com/" target="_blank" class="华文彩云 紫红色">考满分</a>&nbsp;&nbsp;<a href="https://science.sciencemag.org/" target="_blank" class="华文彩云 紫红色">Science</a>&nbsp;&nbsp;<a href="https://www.nature.com/" target="_blank" class="华文彩云 紫红色">Nature</a>&nbsp;&nbsp;<a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank" class="华文彩云 紫红色">Python</a>&nbsp;&nbsp;<a href="http://www.qdaily.com/" target="_blank" class="华文彩云 紫红色">好奇心</a>&nbsp;&nbsp;<a href="http://dev-tageniu.pantheonsite.io/" target="_blank" class="华文彩云 紫红色">主页</a>&nbsp;&nbsp;<a href="https://zh.wikipedia.hk.cn/" target="_blank" class="华文彩云 紫红色">百科</a>&nbsp;&nbsp;<a href="http://grantome.com/" target="_blank" class="华文彩云 紫红色">Funding</a>&nbsp;&nbsp;<a href="https://www.codecademy.com/" target="_blank" class="华文彩云 紫红色">CodeCademy</a>&nbsp;&nbsp;<a href="http://home.ustc.edu.cn/~yanhaoming/" target="_blank" class="华文彩云 紫红色">Someone</a>
+</p>
+
+<p>　　　　　<a href="https://www.nobelprize.org/" target="_blank" class="华文彩云 紫红色">Nobel Prize</a>&nbsp;&nbsp;<a href="https://www.runoob.com/" target="_blank" class="华文彩云 紫红色">菜鸟教程</a>&nbsp;&nbsp;<a href="https://chaoli.club/" target="_blank" class="华文彩云 紫红色">超理论坛</a>&nbsp;&nbsp;<a href="https://www.w3schools.com/" target="_blank" class="华文彩云 紫红色">W3School</a>&nbsp;&nbsp;<a href="https://www.qiskit.org/terra" target="_blank" class="华文彩云 紫红色">QuanCal</a>&nbsp;&nbsp;<a href="https://www.goodreads.com" target="_blank" class="华文彩云 紫红色">GoodReads</a>&nbsp;&nbsp;<a href="https://physics.ustc.edu.cn/sy_18632/list.htm" target="_blank" class="华文彩云 紫红色">！物理讲座！</a>
+</p>
+
+<p>　　　　　<a href="https://purdue0-my.sharepoint.com/personal/sun927_purdue_edu/_layouts/15/onedrive.aspx" target="_blank" class="华文彩云 紫红色">OneDrive(Purdue)</a>&nbsp;&nbsp;<a href="https://mailustceducn-my.sharepoint.com/personal/tageniu_mail_ustc_edu_cn/_layouts/15/onedrive.aspx" target="_blank" class="华文彩云 紫红色">OneDrive(USTC)</a>
+</p>
+
+<p id="span1">
+	<a class="微软雅黑" href="histories/history.html">访问历史版本</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="微软雅黑" href="https://music.zhuolin.wang/">Songs</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="微软雅黑" href="http://tool.yijingying.com/">Songs_2</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="微软雅黑" href="http://quantumcomputer.ac.cn/index.html" target="_blank">QuantumCom</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="微软雅黑" href="http://cnrail.geogv.org/zhcn/" target="_blank">RailwayMap</a>&nbsp;
+	<button onclick="window.location.href='ms-settings:network';">网络状态</button>
+	<button onclick="window.location.href='https://www.bilibili.com/video/av11339177/'">画个画</button>
+	<button onclick="window.location.href='http://bigscreen.cmet.ustc.edu.cn/#/2'">大屏课表</button>
+	<button onclick="window.location.href='http://home.ustc.edu.cn/~yuan74/'">叶嘉沅</button>
+</p>
+
+<script type="text/javascript">
+function startTime() {
+	var today=new Date();//定义日期对象
+	var yyyy = today.getFullYear();//通过日期对象的getFullYear()方法返回年
+	var MM = today.getMonth()+1;//通过日期对象的getMonth()方法返回月
+	var dd = today.getDate();//通过日期对象的getDate()方法返回日
+	var hh = today.getHours();//通过日期对象的getHours方法返回小时
+	var mm = today.getMinutes();//通过日期对象的getMinutes方法返回分钟
+	var ss = today.getSeconds();//通过日期对象的getSeconds方法返回秒
+		// 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09
+	MM = checkTime(MM);
+	dd = checkTime(dd);
+	mm = checkTime(mm);
+	ss = checkTime(ss);
+	var day; //用于保存星期（getDay()方法得到星期编号）  
+	if(today.getDay() == 0) day = "星期日 "
+	if(today.getDay() == 1) day = "星期一 "
+	if(today.getDay() == 2) day = "星期二 "
+	if(today.getDay() == 3) day = "星期三 "
+	if(today.getDay() == 4) day = "星期四 "
+	if(today.getDay() == 5) day = "星期五 "
+	if(today.getDay() == 6) day = "星期六 "
+	document.getElementById('nowDateTimeSpan').innerHTML=yyyy+"年"+MM +"月"+ dd +"日 " + hh+":"+mm+":"+ss+"   " + day;
+	setTimeout('startTime()',1000);//每一秒重新加载startTime()方法
+}
+
+function checkTime(i) {
+	if (i<10){
+		i="0" + i;
+	}
+	return i;
+}
+	
+function browserRedirect() {
+	var sUserAgent = navigator.userAgent.toLowerCase();
+	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+	var bIsIphone = sUserAgent.match(/iphone/i) == "iphone";
+	var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+	var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+	var bIsAndroid = sUserAgent.match(/android/i) == "android";
+	var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+	var bIsMacOs = sUserAgent.match(/mac os/i) == "mac os";
+	if (bIsIpad) return 1;
+	if (bIsIphone) return 2;
+	if (bIsMidp) return 3;
+	if (bIsUc7) return 4;
+	if (bIsUc) return 5;
+	if (bIsAndroid) return 6;
+	if (bIsCE) return 7;
+	if (bIsWM) return 8;
+	if (bIsMacOs) return 9;
+	else return 10;
+	}
+
+	var i=browserRedirect();
+
+function checkUrl() {
+	var str= navigator.userAgent.toLowerCase();
+	if (i == 1) {
+		var ver = str.match(/(\d+)_(\d+)_(\d+)/);
+		if(!ver) var ver=str.match(/(\d+)_(\d+)/);
+		if(ver[1]>="13")
+			document.getElementById('what').innerHTML="iPad 访问 (iPadOS:"+ver[0].replace(/_/g,".")+")";
+		else
+			document.getElementById('what').innerHTML="iPad 访问 (iOS:"+ver[0].replace(/_/g,".")+")";
+		}
+	if (i == 2) {
+		var ver = str.match(/(\d+)_(\d+)_(\d+)/);
+		if(!ver) var ver=str.match(/(\d+)_(\d+)/);
+		document.getElementById('what').innerHTML="iPhone 访问 (iOS:"+ver[0].replace(/_/g,".")+")";
+		}
+	if (i == 3) {
+		document.getElementById('what').innerHTML="Midp 访问";
+		}
+	if (i == 4) {
+		document.getElementById('what').innerHTML="UC7 访问";
+		}
+	if (i == 5) {
+		document.getElementById('what').innerHTML="UC 访问";
+		}
+	if (i == 6) {
+		var ver = str.match(/android (\d+).(\d+).(\d+)/);
+		if(!ver) var ver=str.match(/android (\d+).(\d+)/);
+		document.getElementById('what').innerHTML=ver[0].replace(/(\w*)a(.*) (.*)/,"$1A$2($3")+") 访问";
+		}
+	if (i == 7) {
+		document.getElementById('what').innerHTML="Windows CE 访问";
+		}
+	if (i == 8) {
+		document.getElementById('what').innerHTML="Windows Mobile 访问";
+		}
+	if (i == 9) {
+		var ver = str.match(/(\d+)_(\d+)_(\d+)/);
+		if(!ver) var ver=str.match(/(\d+)_(\d+)/);
+		if(ver[1]==10){
+			switch(ver[2]){
+			case "0":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Cheetah:"+ver[0].replace(/_/g,".")+")"; break;
+			case "1":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Puma:"+ver[0].replace(/_/g,".")+")"; break;
+			case "2":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Jaguar:"+ver[0].replace(/_/g,".")+")"; break;
+			case "3":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Panther:"+ver[0].replace(/_/g,".")+")"; break;
+			case "4":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Tiger:"+ver[0].replace(/_/g,".")+")"; break;
+			case "5":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Leopard:"+ver[0].replace(/_/g,".")+")"; break;
+			case "6":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Snow Leopard:"+ver[0].replace(/_/g,".")+")"; break;
+			case "7":
+				document.getElementById('what').innerHTML="Mac 访问 (Mac OS X Lion:"+ver[0].replace(/_/g,".")+")"; break;
+			case "8":
+				document.getElementById('what').innerHTML="Mac 访问 (OS X Mountain Lion:"+ver[0].replace(/_/g,".")+")"; break;
+			case "9":
+				document.getElementById('what').innerHTML="Mac 访问 (OS X Mavericks:"+ver[0].replace(/_/g,".")+")"; break;
+			case "10":
+				document.getElementById('what').innerHTML="Mac 访问 (OS X Yosemite:"+ver[0].replace(/_/g,".")+")"; break;
+			case "11":
+				document.getElementById('what').innerHTML="Mac 访问 (OS X El Capitan:"+ver[0].replace(/_/g,".")+")"; break;
+			case "12":
+				document.getElementById('what').innerHTML="Mac 访问 (macOS Sierra:"+ver[0].replace(/_/g,".")+")"; break;
+			case "13":
+				document.getElementById('what').innerHTML="Mac 访问 (macOS High Sierra:"+ver[0].replace(/_/g,".")+")"; break;
+			case "14":
+				document.getElementById('what').innerHTML="Mac 访问 (macOS Mojave:"+ver[0].replace(/_/g,".")+")"; break;
+			case "15":
+				document.getElementById('what').innerHTML="Mac 访问 (macOS Catalina:"+ver[0].replace(/_/g,".")+")"; break;
+			default:
+				document.getElementById('what').innerHTML="Mac 访问";
+			}
+		}
+
+		if(ver[1]==11){
+			document.getElementById('what').innerHTML="Mac 访问 (macOS Big Sur:"+ver[0].replace(/_/g,".")+")";
+		}
+
+		}
+	if (i == 10) {
+		var ver = str.match(/windows nt (\d+).(\d+)/);
+		if (ver[1] == 5 && ver[2] == 1) document.getElementById('what').innerHTML="Windows XP 访问";
+		if (ver[1] == 6){
+			if (ver[2] == 0) document.getElementById('what').innerHTML="Windows Vista 访问";
+			if (ver[2] == 1) document.getElementById('what').innerHTML="Windows 7 访问";
+			if (ver[2] == 2) document.getElementById('what').innerHTML="Windows 8 访问";
+			if (ver[2] == 3) document.getElementById('what').innerHTML="Windows 8.1 访问";
+			}
+		if (ver[1] == 10 && ver[2] == 0) document.getElementById('what').innerHTML="Windows 10 访问";
+		}
+	}
+	checkUrl();
+
+
+	//var ipv4 = null;
+	$.ajax({url:"https://api-ipv4.ip.sb/ip",
+		async:false,
+		cache:false,
+		type:"post",
+		success:function (temp) {
+		var ipv4 = temp;
+		}
+	});
+	document.getElementById('ipv4').innerHTML = ipv4
+</script>
+<object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="710">
+  <param name="movie" value="images/kepler.swf">
+  <param name="quality" value="high">
+  <param name="wmode" value="opaque">
+  <param name="swfversion" value="6.0.65.0">
+  <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+  <param name="expressinstall" value="Scripts/expressInstall.swf">
+  <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+  <!--[if !IE]>-->
+  <object type="application/x-shockwave-flash" data="images/kepler.swf" width="900" height="710">
+    <!--<![endif]-->
+    <param name="quality" value="high">
+    <param name="wmode" value="opaque">
+    <param name="swfversion" value="6.0.65.0">
+    <param name="expressinstall" value="Scripts/expressInstall.swf">
+    <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+    <div>
+      <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+    </div>
+    <!--[if !IE]>-->
+  </object>
+  <!--<![endif]-->
+</object>
+<script type="text/javascript">
+swfobject.registerObject("FlashID");
+</script>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://myhkw.cn/player/js/player.js" id="myhk" key="demo" m="1"></script>
+
+</body>
+</html>
